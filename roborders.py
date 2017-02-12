@@ -17,18 +17,6 @@ wall_functions = {
     'down': wall_is_beneath,
 }
 
-def get_direct_functions (direct):
-    '''Return move_direct and wall_condition for not smashing into the wall
-    direct: ['right', 'leaft', 'up', 'down']'''
-    if direct == 'right':
-        return move_right, wall_is_on_the_right
-    elif direct == 'left':
-        return move_left, wall_is_on_the_left
-    elif direct == 'up':
-        return move_up, wall_is_above
-    elif direct == 'down':
-        return move_down, wall_is_beneath
-
 def move_to_wall (direct = 'right'):
     '''Moving the robot in the given direction till the wall
 	direct: ['right', 'leaft', 'up', 'down']'''
