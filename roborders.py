@@ -34,29 +34,11 @@ def move_along_the_wall (direct, wall_on_the_side):
         return
 
     # move_direct contains function to move
+    move_direct = moving_functions[direct]
     # check_move_direct contains checker of the direction
-    if direct == 'right':
-        check_move_direct = wall_is_on_the_right
-        move_direct = move_right
-    elif direct == 'left':
-        check_move_direct = wall_is_on_the_left
-        move_direct = move_left
-    elif direct == 'up':
-        check_move_direct = wall_is_above
-        move_direct == move_up
-    elif direct == 'down':
-        check_move_direct = wall_is_beneath
-        move_direct = move_down
-
+    check_move_direct = wall_functions[direct]
     # check_side_wall contains the side to check the wall
-    if wall_on_the_side == 'right':
-        check_side_wall = wall_is_on_the_right
-    elif wall_on_the_side == 'left':
-        check_side_wall = wall_is_on_the_left
-    elif wall_on_the_side == 'up':
-        check_side_wall = wall_is_above
-    elif wall_on_the_side == 'down':
-        check_side_wall = wall_is_beneath
+    check_side_wall = wall_functions[wall_on_the_side]
 
     while check_side_wall():
         if not check_move_direct():
