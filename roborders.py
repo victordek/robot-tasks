@@ -4,17 +4,17 @@ from pyrob.api import *
 
 # dictionary for the label based access to moving 
 moving_functions = {
-    'right': move_right
-    'left': move_left
-    'up': move_up
-    'down': move_down
+    'right': move_right,
+    'left': move_left,
+    'up': move_up,
+    'down': move_down,
 }
 # dictionary for the label based access to wall checking
 wall_functions = {
-    'right': wall_is_on_the_right
-    'left': wall_is_on_the_left
-    'up': wall_is_above
-    'down': wall_is_beneath
+    'right': wall_is_on_the_right,
+    'left': wall_is_on_the_left,
+    'up': wall_is_above,
+    'down': wall_is_beneath,
 }
 
 def get_direct_functions (direct):
@@ -32,7 +32,7 @@ def get_direct_functions (direct):
 def move_to_wall (direct = 'right'):
     '''Moving the robot in the given direction till the wall
 	direct: ['right', 'leaft', 'up', 'down']'''
-    move_direct, check_wall = get_direct_functions(direct)
+    move_direct, check_wall = moving_functions[direct], wall_functions[direct]
     while not check_wall():
         move_direct()
 
