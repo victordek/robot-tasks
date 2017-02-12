@@ -17,18 +17,9 @@ def get_direct_functions (direct):
 def move_to_wall (direct = 'right'):
     '''Moving the robot in the given direction till the wall
 	direct: ['right', 'leaft', 'up', 'down']'''
-    if direct == 'right':
-        while not wall_is_on_the_right():
-            move_right()
-    elif direct == 'left':
-        while not wall_is_on_the_left():
-            move_left()
-    elif direct == 'up':
-        while not wall_is_above():
-            move_up()
-    elif direct == 'down':
-        while not wall_is_beneath():
-            move_down()
+    move_direct, check_wall = get_direct_functions(direct)
+    while not check_wall():
+        move_direct()
 
 def move_along_the_wall (direct, wall_on_the_side):
     '''Moving along the wall on the side in the given direction.
