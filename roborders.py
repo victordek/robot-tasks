@@ -119,4 +119,22 @@ def draw_cross ():
     fill_cell()
     move_up()
 
-    
+def draw_triangle (length, draw_direct, start_direct):
+    move_direct = moving_functions[start_direct]
+    back_direct = moving_functions[opposite_dir[start_direct]]
+
+    next_line_direct = moving_functions[draw_direct]
+
+    height = length // 2
+    for i in range(height):
+        line_len = length - 2 * (i + 1)
+        for j in range (line_len):
+            move_direct()
+            fill_cell()
+        back_direct(line_len)
+        next_line_direct()
+        move_direct()
+
+    # moving back to starting position
+    move_to_wall(opposite_dir[draw_direct])
+    move_to_wall(opposite_dir[start_direct])
