@@ -97,3 +97,26 @@ def filling_the_line_from_end_to_end (direct):
     fill_cell()
     
     move_to_wall(opposite_dir[direct])
+
+def draw_cross ():
+    '''Draw cross from in the form of:
+    AX0
+    XXX
+    0X0
+    where X are filled cells and A is start and finish
+    no checks are provided'''
+    move_right()
+    fill_cell()
+    move_down()
+    fill_cell()
+    move_right()
+    fill_cell()
+    move_left()
+    move_down()
+    fill_cell()
+    move_up()
+    move_left()
+    fill_cell()
+    move_up()
+
+    
