@@ -22,7 +22,7 @@ def move_to_wall (direct = 'right'):
 	direct: ['right', 'leaft', 'up', 'down']'''
 
     move_direct, wall_on_the_way = moving_functions[direct], wall_functions[direct]
-    while not check_wall():
+    while not wall_on_the_way():
         move_direct()
 
 def move_along_the_wall (direct, wall_on_side_direct):
@@ -68,6 +68,7 @@ def action_in_the_hall (condition, direct = 'right', side_wall1 = 'up', side_wal
             action()
 
 def move_to_the_opposite_corner():
+    '''Moving to the opposite corner of the field'''
     if wall_is_on_the_left():
         move_to_wall('right')
     else:
