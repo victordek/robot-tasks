@@ -20,6 +20,7 @@ wall_functions = {
 def move_to_wall (direct = 'right'):
     '''Moving the robot in the given direction till the wall
 	direct: ['right', 'leaft', 'up', 'down']'''
+
     move_direct, wall_on_the_way = moving_functions[direct], wall_functions[direct]
     while not check_wall():
         move_direct()
@@ -28,7 +29,8 @@ def move_along_the_wall (direct, wall_on_side_direct):
     '''Moving along the wall on the side in the given direction.
     Checking that wall is on the side than moving. So stops in the next point from the wall`s end
     direct: ['right', 'leaft', 'up', 'down']
-    wwall_on_side_direct: ['right', 'leaft', 'up', 'down']'''
+    wall_on_side_direct: ['right', 'leaft', 'up', 'down']'''
+    
     if direct == wall_on_the_side:
         print ("Direrctions shouldn`t be the same")
         return
@@ -43,3 +45,24 @@ def move_along_the_wall (direct, wall_on_side_direct):
             # stop function and prevent smashing in to the corner
             return
 
+def action_in_the_hall (condition, direct = 'right', side_wall1 = 'up', side_wall2 = 'down', action = fill_cell):
+    '''Moving down the hall and applying action if condition is True. Condition is checked on each step.
+    Both of side_wall could be calculated automaticly, but passing through parametres allos to control condition 
+    condition: function with to params (2 side walls) to return True/False
+    direct: ['right', 'leaft', 'up', 'down']
+    side_wall1: ['right', 'leaft', 'up', 'down']
+    side_wall2: ['right', 'leaft', 'up', 'down']
+    action: anything'''
+
+    move_direct, wall_on_the_way = moving_functions[direct], wall_functions[direct]
+    wall_on_the_side1, wall_on_the_side2 = wall_functions[side_wall1], wall_functions[side_wall2]
+
+    # checks starting position
+    if condition(wall_on_the_side1, wall_on_the_side2):
+        action()
+
+    while not wall_on_the_way():
+        move_direct()
+        # checking new position for filling
+        if condition(wall_on_the_side1, wall_on_the_side2):
+            action()
