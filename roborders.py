@@ -66,3 +66,15 @@ def action_in_the_hall (condition, direct = 'right', side_wall1 = 'up', side_wal
         # checking new position for filling
         if condition(wall_on_the_side1, wall_on_the_side2):
             action()
+
+def move_to_the_opposite_corner():
+    if wall_is_on_the_left():
+        move_to_wall('right')
+    else:
+        move_to_wall('left')
+
+    if wall_is_above():
+        move_to_wall('down')
+    else:
+        move_to_wall('up')
+
