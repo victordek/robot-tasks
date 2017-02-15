@@ -34,7 +34,6 @@ def move_along_the_wall (direct, wall_on_side_direct):
         return
 
     move_direct, wall_on_the_way = moving_functions[direct], wall_functions[direct]
-
     wall_on_the_side = wall_functions[wall_on_side_direct]
 
     while wall_on_the_side():
