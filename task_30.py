@@ -12,7 +12,6 @@ def task_9_3():
     while not wall_is_on_the_right():
         move_right()
         length += 1
-    print (length)
 
     rd.draw_triangle(length, 'down', 'left')
     rd.draw_triangle(length, 'left', 'down')

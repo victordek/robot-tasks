@@ -16,12 +16,17 @@ def task_7_5():
 
     #move_right()
     while not wall_is_on_the_right():
-        #print (count, border)
         move_right()
+        if wall_is_on_the_right():
+            return
         count, border, decision = fil_or_not_fill (count, border)
+
         if decision:
             fill_cell()
-        #move_right()
+        
+        
+        
+
 
 
 
