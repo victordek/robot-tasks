@@ -32,7 +32,7 @@ def move_along_the_wall (direct, wall_on_the_side):
     if direct == wall_on_the_side:
         print ("Direrctions shouldn`t be the same")
         return
-
+    print ('Some Bullshit')
     # move_direct contains function to move
     move_direct = moving_functions[direct]
     # check_move_direct contains checker of the direction
