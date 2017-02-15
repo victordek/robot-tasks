@@ -31,7 +31,7 @@ def move_along_the_wall (direct, wall_on_side_direct):
     direct: ['right', 'leaft', 'up', 'down']
     wall_on_side_direct: ['right', 'leaft', 'up', 'down']'''
     
-    if direct == wall_on_the_side:
+    if direct == wall_on_side_direct:
         print ("Direrctions shouldn`t be the same")
         return
 
