@@ -16,6 +16,13 @@ wall_functions = {
     'up': wall_is_above,
     'down': wall_is_beneath,
 }
+# dictionary for opposite directions
+opposite_dir = {
+    'right': 'left',
+    'left': 'right',
+    'up': 'down',
+    'down': 'up',    
+}
 
 def move_to_wall (direct = 'right'):
     '''Moving the robot in the given direction till the wall
@@ -79,3 +86,14 @@ def move_to_the_opposite_corner():
     else:
         move_to_wall('up')
 
+def filling_the_line_from_end_to_end (direct):
+    '''Moving the robot in the given direction till the wall, filling each point and going back
+    direct: ['right', 'leaft', 'up', 'down']'''
+    move_direct, wall_on_the_way = moving_functions[direct], wall_functions[direct]
+
+    while not wall_on_the_way():
+        fill_cell()
+        move_direct()
+    fill_cell()
+    
+    move_to_wall(opposite_dir[direct])
